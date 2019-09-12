@@ -1,0 +1,39 @@
+{
+    "name": "jest-puppeteer-istanbul",
+    "version": "0.1.0",
+    "main": "lib/index.js",
+    "repository": "https://github.com/ocavue/jest-puppeteer-istanbul",
+    "author": "ocavue <ocavue@gmail.com>",
+    "license": "MIT",
+    "keywords": [
+        "jest",
+        "puppeteer",
+        "istanbul",
+        "jest-puppeteer",
+        "jest-puppeteer-istanbul",
+        "coverage"
+    ],
+    "scripts": {
+        "build": "tsc",
+        "lint": "eslint . --fix"
+    },
+    "devDependencies": {
+        "@types/expect-puppeteer": "^3.3.1",
+        "@types/jest-environment-puppeteer": "^4.3.1",
+        "@types/puppeteer": "^1.19.1",
+        "@typescript-eslint/eslint-plugin": "^2.2.0",
+        "@typescript-eslint/parser": "^2.2.0",
+        "eslint": "^6.3.0",
+        "eslint-config-prettier": "^6.3.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "prettier": "^1.18.2",
+        "prettier-eslint": "^9.0.0",
+        "typescript": "~3.5.0"
+    },
+    "dependencies": {
+        "execa": "^2.0.4",
+        "jest": "^24.9.0",
+        "jest-puppeteer": "^4.3.0",
+        "puppeteer": "^1.19.0"
+    }
+}

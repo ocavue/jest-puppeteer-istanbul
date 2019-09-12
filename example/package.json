@@ -1,0 +1,18 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "babel-plugin-istanbul": "^5.2.0",
+    "jest": "^24.9.0",
+    "jest-puppeteer": "^4.3.0",
+    "parcel": "^1.12.3",
+    "puppeteer": "^1.19.0"
+  }
+}
