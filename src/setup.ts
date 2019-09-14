@@ -25,7 +25,9 @@ function saveCoverage(coverage: CoverageMap) {
 }
 
 afterEach(async () => {
-    const coverageMap = await getCoverage(page)
-    coverageMap.merge(getExistsCoverageData())
-    saveCoverage(coverageMap)
+    if (process.env.JEST_PUPPETEER_ISTANBUL_COVERAGE !== "false") {
+        const coverageMap = await getCoverage(page)
+        coverageMap.merge(getExistsCoverageData())
+        saveCoverage(coverageMap)
+    }
 })

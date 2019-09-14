@@ -44,7 +44,3 @@ A Jest configuration example:
 ### Example
 
 Check [this link](https://github.com/ocavue/jest-puppeteer-istanbul/tree/master/example) for a complete example.
-
-### Troubleshooting
-
-Your will see *two* coverage results in the terminal. The first one is the origin coverage information from jest, which doesn't include the coverage result from puppeteer tests. Base on the way `jest-puppeteer-istanbul` works, it's not easy to remove the origin coverage output.
