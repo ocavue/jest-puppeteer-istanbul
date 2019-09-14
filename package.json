@@ -30,9 +30,8 @@
         "typescript": "~3.5.0"
     },
     "dependencies": {
-        "execa": "^2.0.4",
         "jest": "^24.9.0",
         "jest-puppeteer": "^4.3.0",
-        "puppeteer": "^1.19.0"
+        "puppeteer": "^1.10.0"
     }
 }
