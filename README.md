@@ -43,7 +43,7 @@ An Jest configuration example:
 
 ### Example
 
-TBD
+Check [this link](https://github.com/ocavue/jest-puppeteer-istanbul/tree/master/example) for a complete example.
 
 ### Troubleshooting
 
