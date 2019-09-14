@@ -1,5 +1,9 @@
 # jest-puppeteer-istanbul
 
+<p>
+  <a href="http://badge.fury.io/js/jest-puppeteer-istanbul"><img src="https://badge.fury.io/js/jest-puppeteer-istanbul.svg" alt="npm version"></a>
+</p>
+
 ## Install
 
 ```bash
