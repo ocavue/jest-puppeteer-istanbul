@@ -13,8 +13,11 @@ async function getCoverage(page: Page): Promise<CoverageMap> {
 
 function getExistsCoverageData(): CoverageMapData {
     if (existsSync(COVERAGE_JSON_PATH)) {
-        const existsCoverage = JSON.parse(readFileSync(COVERAGE_JSON_PATH, "utf-8"))
-        return existsCoverage
+        try {
+            return JSON.parse(readFileSync(COVERAGE_JSON_PATH, "utf-8"))
+        } catch (error) {
+            return {}
+        }
     }
     return {}
 }
