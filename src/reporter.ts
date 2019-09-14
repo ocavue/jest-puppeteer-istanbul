@@ -1,13 +1,11 @@
-import { join } from "path"
-import { existsSync, unlinkSync, readFileSync } from "fs"
 import { createCoverageMap } from "istanbul-lib-coverage"
 import { CoverageReporter } from "@jest/reporters"
 import { TestResult, AggregatedResult } from "@jest/test-result"
 import { Test } from "jest-runner"
 import { Config } from "@jest/types"
+import { CoverageStorage } from "./storage"
 
-const COVERAGE_DIR_PATH = join(process.cwd(), "coverage")
-const COVERAGE_JSON_PATH = join(COVERAGE_DIR_PATH, "coverage-puppeteer-istanbul.json")
+const coverageStorage = new CoverageStorage()
 
 export = class PuppeteerIstanbul extends CoverageReporter {
     private collectCoverage: boolean
@@ -32,9 +30,7 @@ export = class PuppeteerIstanbul extends CoverageReporter {
 
     onRunStart(_results: any, _options: any) {
         if (this.collectCoverage) {
-            if (existsSync(COVERAGE_JSON_PATH)) {
-                unlinkSync(COVERAGE_JSON_PATH)
-            }
+            coverageStorage.delete()
             return super.onRunStart(_results, _options)
         }
     }
@@ -43,10 +39,7 @@ export = class PuppeteerIstanbul extends CoverageReporter {
         if (this.collectCoverage) {
             const coverage = createCoverageMap({})
 
-            if (existsSync(COVERAGE_JSON_PATH)) {
-                const puppeteerCoverageData = JSON.parse(readFileSync(COVERAGE_JSON_PATH, "utf-8"))
-                coverage.merge(puppeteerCoverageData)
-            }
+            coverage.merge(coverageStorage.read())
             if (testResult.coverage) {
                 coverage.merge(testResult.coverage)
             }
