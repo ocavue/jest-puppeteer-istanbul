@@ -1,6 +1,6 @@
 {
     "name": "jest-puppeteer-istanbul",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "repository": "https://github.com/ocavue/jest-puppeteer-istanbul",
     "author": "ocavue <ocavue@gmail.com>",
     "license": "MIT",
