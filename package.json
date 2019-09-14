@@ -35,8 +35,10 @@
         "typescript": "~3.5.0"
     },
     "dependencies": {
-        "jest": "^24.9.0",
-        "jest-puppeteer": "^4.3.0",
+        "jest": "^24.0.0",
+        "jest-puppeteer": "^4.3.0"
+    },
+    "peerDependencies": {
         "puppeteer": "^1.10.0"
     }
 }
