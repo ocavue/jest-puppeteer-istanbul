@@ -1,6 +1,7 @@
 .cache/
 dist/
 lib/
+coverage_result/
 
 # Logs
 logs

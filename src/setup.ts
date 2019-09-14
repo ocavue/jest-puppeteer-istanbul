@@ -2,7 +2,7 @@ import { Page } from "puppeteer"
 import { CoverageMap, createCoverageMap } from "istanbul-lib-coverage"
 import { CoverageStorage } from "./storage"
 
-const coverageStorage = new CoverageStorage()
+const coverageStorage = new CoverageStorage(process.env.JEST_PUPPETEER_ISTANBUL_DIR)
 
 async function getCoverage(page: Page): Promise<CoverageMap> {
     const coverage = await page.evaluate(() => (window as any).__coverage__)

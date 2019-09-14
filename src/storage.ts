@@ -6,8 +6,8 @@ export class CoverageStorage {
     private coverageDirPath: string
     private coverageJsonPath: string
 
-    constructor() {
-        this.coverageDirPath = join(process.cwd(), "coverage")
+    constructor(coverageDir = "coverage") {
+        this.coverageDirPath = coverageDir
         this.coverageJsonPath = join(this.coverageDirPath, "coverage-puppeteer-istanbul.json")
     }
 

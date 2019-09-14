@@ -5,10 +5,9 @@ import { Test } from "jest-runner"
 import { Config } from "@jest/types"
 import { CoverageStorage } from "./storage"
 
-const coverageStorage = new CoverageStorage()
-
 export = class PuppeteerIstanbul extends CoverageReporter {
     private collectCoverage: boolean
+    private coverageStorage: CoverageStorage
 
     constructor(globalConfig: Config.GlobalConfig, _options: any) {
         const coverageReporters = [...(globalConfig.coverageReporters || [])]
@@ -26,11 +25,13 @@ export = class PuppeteerIstanbul extends CoverageReporter {
         this.collectCoverage = globalConfig.collectCoverage
         // Using environment variable to communicate between reporter and setup
         process.env.JEST_PUPPETEER_ISTANBUL_COVERAGE = String(this.collectCoverage)
+        process.env.JEST_PUPPETEER_ISTANBUL_DIR = globalConfig.coverageDirectory
+        this.coverageStorage = new CoverageStorage(globalConfig.coverageDirectory)
     }
 
     onRunStart(_results: any, _options: any) {
         if (this.collectCoverage) {
-            coverageStorage.delete()
+            this.coverageStorage.delete()
             return super.onRunStart(_results, _options)
         }
     }
@@ -39,7 +40,7 @@ export = class PuppeteerIstanbul extends CoverageReporter {
         if (this.collectCoverage) {
             const coverage = createCoverageMap({})
 
-            coverage.merge(coverageStorage.read())
+            coverage.merge(this.coverageStorage.read())
             if (testResult.coverage) {
                 coverage.merge(testResult.coverage)
             }
