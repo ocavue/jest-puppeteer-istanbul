@@ -1,4 +1,4 @@
-import primeDeco from "../src/primeDeco"
+const primeDeco = require("../src/primeDeco")
 
 describe("Prime decomposition", () => {
     test("1", () => {
