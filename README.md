@@ -30,7 +30,7 @@ Update your Jest configuration:
 
 > If custom reporters are specified, the default Jest reporters will be overridden. To keep default reporters, `default` can be passed as a module name.
 
-An Jest configuration example:
+A Jest configuration example:
 ```js
 {
   coverageReporters: ["json", "text", "lcov"],
