@@ -1,3 +1,7 @@
+# An example of jest-puppeteer-istanbul
+
+In this example, `src/fibonacci.js` will be tested by an e2e test and `src/primeDeco.js` will be covered by a unit test. With `jest-puppeteer-istanbul`, Jest can collect and combine their coverage information.
+
 ## Install
 
 ```bash
