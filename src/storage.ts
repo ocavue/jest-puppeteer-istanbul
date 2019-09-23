@@ -23,7 +23,10 @@ export class CoverageStorage {
     }
 
     write(coverage: CoverageMap): void {
-        mkdirSync(this.coverageDirPath, { recursive: true })
+        // Node v8 has not `recursive` option. So make sure that `coverageDirPath` doesn't exist before `mkdirSync`.
+        if (!existsSync(this.coverageDirPath)) {
+            mkdirSync(this.coverageDirPath, { recursive: true })
+        }
         writeFileSync(this.coverageJsonPath, JSON.stringify(coverage.data))
     }
 
