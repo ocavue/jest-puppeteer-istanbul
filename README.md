@@ -42,7 +42,7 @@ A Jest configuration example:
   coverageReporters: ["json", "text", "lcov"],
   setupFilesAfterEnv: ["jest-puppeteer-istanbul/lib/setup"],
   reporters: ["default", "jest-puppeteer-istanbul/lib/reporter"],
-  preset: "jest-puppeteer", // Required be `jest-puppeteer`
+  preset: "jest-puppeteer", // Required by `jest-puppeteer`
   collectCoverage: true,
 }
 ```
