@@ -48,6 +48,6 @@ A Jest configuration example:
 }
 ```
 
-### Example
+### Examples
 
-Check [this link](https://github.com/ocavue/jest-puppeteer-istanbul/tree/master/example) for a complete example.
+Check [this link](https://github.com/ocavue/jest-puppeteer-istanbul/tree/master/examples) for complete examples.
