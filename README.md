@@ -17,7 +17,7 @@ npm install -D jest-puppeteer-istanbul
 
 ### [1/3]
 
-Make sure that you have [`jest-puppeteer`](https://github.com/smooth-code/jest-puppeteer) and [babel](https://github.com/babel/babel) installed and configured.
+Make sure that you have [jest](https://github.com/facebook/jest) and [babel](https://github.com/babel/babel) installed and configured.
 
 ### [2/3]
 
