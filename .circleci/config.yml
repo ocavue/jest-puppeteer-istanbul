@@ -49,8 +49,8 @@ jobs:
       - checkout
       - attach_workspace:
           at: /tmp/lib
-      - run: .circleci/run-example.sh example/example-with-jest-puppeteer
-      - run: .circleci/run-example.sh example/example-without-jest-puppeteer
+      - run: .circleci/run-example.sh examples/example-with-jest-puppeteer
+      - run: .circleci/run-example.sh examples/example-without-jest-puppeteer
 
   test-node10:
     steps: *test-steps
