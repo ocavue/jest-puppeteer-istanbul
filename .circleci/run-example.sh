@@ -9,4 +9,4 @@ cp -f /tmp/lib/* ./node_modules/jest-puppeteer-istanbul/lib/
 yarn dev &
 sleep 5
 yarn test
-JSON_PATH='./coverage_result/coverage-summary.json' root/.circleci/check-example-result.js
+JSON_PATH='./coverage_result/coverage-summary.json' $root/.circleci/check-example-result.js
