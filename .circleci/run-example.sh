@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 root=$(pwd)
 cd $1
 yarn install # TODO: cache
