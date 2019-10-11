@@ -1,0 +1,67 @@
+version: 2.1
+
+workflows:
+  version: 2
+  main_workflows:
+    jobs:
+      - build
+      - test-node12:
+          requires:
+            - build
+      - test-node10:
+          requires:
+            - build
+      - test-node8:
+          requires:
+            - build
+
+executors:
+  node12:
+    docker:
+      - image: circleci/node:12-stretch-browsers
+  node10:
+    docker:
+      - image: circleci/node:10-stretch-browsers
+  node8:
+    docker:
+      - image: circleci/node:8-stretch-browsers
+
+jobs:
+  build:
+    executor: node12
+    steps:
+      - checkout
+      - restore_cache:
+          key: &cache_key main-dependencies-{{ checksum "yarn.lock" }}-v0
+      - run: yarn install --frozen-lockfile
+      - save_cache:
+          paths:
+            - node_modules
+          key: *cache_key
+      - run: yarn build --outDir /tmp/lib
+      - persist_to_workspace:
+          root: /tmp/lib
+          paths: ["."]
+
+  test-node12:
+    executor: node12
+    steps: &test-steps
+      - checkout
+      - attach_workspace:
+          at: /tmp/lib
+      - run: |
+          cd example
+          yarn install # TODO: cache
+          cp -f /tmp/lib/* ./node_modules/jest-puppeteer-istanbul/lib/
+          yarn dev &
+          sleep 15
+          yarn test
+      - run: .circleci/check-example-result.js
+
+  test-node10:
+    steps: *test-steps
+    executor: node10
+
+  test-node8:
+    steps: *test-steps
+    executor: node8
