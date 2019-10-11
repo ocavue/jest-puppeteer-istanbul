@@ -1,10 +1,14 @@
 const puppeteer = require("puppeteer")
 
+async function setupPuppeteer() {
+    const browser = await puppeteer.launch()
+    page = await browser.newPage()
+    global.page = page
+}
+
 describe("fibonacci number", () => {
     beforeAll(async () => {
-        const browser = await puppeteer.launch()
-        page = await browser.newPage()
-        global.page = page
+        await setupPuppeteer()
         await page.goto("http://localhost:1234")
         await page.waitFor(200)
     })
