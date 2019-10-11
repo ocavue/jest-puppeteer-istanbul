@@ -49,13 +49,8 @@ jobs:
       - checkout
       - attach_workspace:
           at: /tmp/lib
-      - run: |
-          cd example
-          yarn install # TODO: cache
-          cp -f /tmp/lib/* ./node_modules/jest-puppeteer-istanbul/lib/
-          yarn dev &
-          sleep 15
-          yarn test
+      - run: .circleci/run-example.sh example/example-with-jest-puppeteer
+      - run: .circleci/run-example.sh example/example-without-jest-puppeteer
       - run: .circleci/check-example-result.js
 
   test-node10:
