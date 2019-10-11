@@ -15,17 +15,17 @@ npm install -D jest-puppeteer-istanbul
 
 ## Configure
 
-### [1/3]
+### [1/4]
 
 Make sure that you have [jest](https://github.com/facebook/jest) and [babel](https://github.com/babel/babel) installed and configured.
 
-### [2/3]
+### [2/4]
 
 Install `babel-plugin-istanbul` and add it to your babel config.
 
 You should **ONLY** use this plugin when you are in development mode. This plugin will add a lot of code for keeping track of the coverage statements. You definitely won't want them in your final production code.
 
-### [3/3]
+### [3/4]
 
 Update your Jest configuration:
 
@@ -43,11 +43,16 @@ A Jest configuration example:
   coverageReporters: ["json", "text", "lcov"],
   setupFilesAfterEnv: ["jest-puppeteer-istanbul/lib/setup"],
   reporters: ["default", "jest-puppeteer-istanbul/lib/reporter"],
-  preset: "jest-puppeteer", // Required by `jest-puppeteer`
   collectCoverage: true,
 }
 ```
 
-### Examples
+### [4/4]
+
+
+
+If you don't use [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer), you
+
+## Examples
 
 Check [this link](https://github.com/ocavue/jest-puppeteer-istanbul/tree/master/examples) for complete examples.
