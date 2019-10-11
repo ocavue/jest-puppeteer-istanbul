@@ -14,4 +14,4 @@ function check (path) {
     }
 }
 
-check(process.env.JSON_PATH)
+check(process.env.COVERAGE_JSON_PATH)
