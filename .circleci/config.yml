@@ -51,7 +51,6 @@ jobs:
           at: /tmp/lib
       - run: .circleci/run-example.sh example/example-with-jest-puppeteer
       - run: .circleci/run-example.sh example/example-without-jest-puppeteer
-      - run: .circleci/check-example-result.js
 
   test-node10:
     steps: *test-steps
