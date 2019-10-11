@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex
+
 root=$(pwd)
 cd $1
 yarn install
