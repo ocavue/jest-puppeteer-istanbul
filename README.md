@@ -2,6 +2,7 @@
 
 <p>
   <a href="http://badge.fury.io/js/jest-puppeteer-istanbul"><img src="https://badge.fury.io/js/jest-puppeteer-istanbul.svg" alt="npm version"></a>
+  <a href="https://circleci.com/gh/ocavue/jest-puppeteer-istanbul/tree/master"><img src="https://circleci.com/gh/ocavue/rino/tree/master.svg?&style=shield" alt="Build Status"></a>
 </p>
 
 ## Install
