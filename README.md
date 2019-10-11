@@ -49,9 +49,7 @@ A Jest configuration example:
 
 ### [4/4]
 
-
-
-If you don't use [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer), you
+If you don't use [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer), you must set `global.page` manually by yourself.
 
 ## Examples
 
