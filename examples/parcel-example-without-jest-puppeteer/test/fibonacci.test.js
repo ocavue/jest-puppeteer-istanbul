@@ -2,7 +2,7 @@ const puppeteer = require("puppeteer")
 
 async function setupPuppeteer() {
     const browser = await puppeteer.launch()
-    page = await browser.newPage()
+    const page = await browser.newPage()
     global.page = page
 }
 
