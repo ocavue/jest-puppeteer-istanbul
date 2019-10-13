@@ -14,4 +14,4 @@ function check (path) {
     }
 }
 
-check('example/coverage_result/coverage-summary.json')
+check(process.env.COVERAGE_JSON_PATH)
