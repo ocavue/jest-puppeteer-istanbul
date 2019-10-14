@@ -51,6 +51,7 @@ jobs:
           at: /tmp/lib
       - run: .circleci/run-example.sh examples/parcel-example-with-jest-puppeteer
       - run: .circleci/run-example.sh examples/parcel-example-without-jest-puppeteer
+      - run: .circleci/run-example.sh examples/vue-cli-example
 
   test-node10:
     steps: *test-steps
