@@ -1,5 +1,8 @@
 module.exports = {
-  presets: [
-    '@vue/app'
-  ]
+    presets: ["@vue/app"],
+    env: {
+        development: {
+            plugins: ["istanbul"],
+        },
+    },
 }
