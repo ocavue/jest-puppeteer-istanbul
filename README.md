@@ -60,7 +60,7 @@ describe("E2E Tests", () => {
     })
 
     test(async () => { /*your test code*/ })
-}
+})
 ```
 
 ## Examples
