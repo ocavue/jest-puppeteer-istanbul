@@ -1,13 +1,8 @@
 {
     // eslint
     "eslint.packageManager": "yarn",
-    "eslint.autoFixOnSave": true,
-    "eslint.validate": [
-        "javascript",
-        {
-            "language": "typescript",
-            "autoFix": true
-        },
-    ],
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
 }
