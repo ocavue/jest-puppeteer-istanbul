@@ -7,6 +7,7 @@
     "license": "MIT",
     "keywords": [
         "jest",
+        "test",
         "puppeteer",
         "istanbul",
         "jest-puppeteer",
@@ -25,7 +26,7 @@
     "devDependencies": {
         "@types/expect-puppeteer": "^3.3.1",
         "@types/jest-environment-puppeteer": "^4.3.1",
-        "@types/puppeteer": "^1.19.1",
+        "@types/puppeteer": "^2.0.0",
         "@typescript-eslint/eslint-plugin": "^2.2.0",
         "@typescript-eslint/parser": "^2.2.0",
         "eslint": "^6.3.0",
@@ -33,7 +34,7 @@
         "eslint-plugin-prettier": "^3.1.0",
         "prettier": "^1.18.2",
         "prettier-eslint": "^9.0.0",
-        "typescript": "~3.5.0"
+        "typescript": "~3.7.0"
     },
     "dependencies": {
         "jest": "^24.0.0"
