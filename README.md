@@ -29,9 +29,9 @@ You should **ONLY** use this plugin when you are in development mode. This plugi
 
 Update your Jest configuration:
 
+- Add `json` to `coverageReporters`. Since the defualt value of `coverageReporters` has `json` inclued, you don't need to change `coverageReporters` if you havn't specify it.
 - Add `jest-puppeteer-istanbul/lib/setup` to `setupFilesAfterEnv`.
 - Add `jest-puppeteer-istanbul/lib/reporter` to `reporters`.
-- Add `json` to `coverageReporters`. Since the defualt value of `coverageReporters` has `json` inclued, you don't need to change `coverageReporters` if you havn't specify it.
 
 Notice:
 
