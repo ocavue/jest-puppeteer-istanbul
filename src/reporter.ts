@@ -24,7 +24,7 @@ export = class PuppeteerIstanbul extends CoverageReporter {
 
         this.collectCoverage = globalConfig.collectCoverage
         // Using environment variable to communicate between reporter and setup
-        process.env.JEST_PUPPETEER_ISTANBUL_COVERAGE = String(this.collectCoverage)
+        process.env.JEST_PUPPETEER_ISTANBUL_COVERAGE = this.collectCoverage ? "true" : "false"
         process.env.JEST_PUPPETEER_ISTANBUL_DIR = globalConfig.coverageDirectory
         this.coverageStorage = new CoverageStorage(globalConfig.coverageDirectory)
     }
