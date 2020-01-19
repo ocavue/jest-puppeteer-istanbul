@@ -1,4 +1,5 @@
-import { createCoverageMap } from "istanbul-lib-coverage"
+import { createCoverageMap, FileCoverage } from "istanbul-lib-coverage"
+import { shouldInstrument, ShouldInstrumentOptions } from "@jest/transform"
 import { CoverageReporter } from "@jest/reporters"
 import { TestResult, AggregatedResult } from "@jest/test-result"
 import { Test } from "jest-runner"
@@ -8,8 +9,9 @@ import { CoverageStorage } from "./storage"
 export = class PuppeteerIstanbul extends CoverageReporter {
     private collectCoverage: boolean
     private coverageStorage: CoverageStorage
+    private shouldInstrumentOptions: ShouldInstrumentOptions
 
-    constructor(globalConfig: Config.GlobalConfig, _options: any) {
+    constructor(globalConfig: Config.GlobalConfig, _options?: any) {
         const coverageReporters = [...(globalConfig.coverageReporters || [])]
 
         // Remove "text" or "text-summary" from the origin config. Because the text result output by
@@ -21,6 +23,14 @@ export = class PuppeteerIstanbul extends CoverageReporter {
             globalConfig.coverageReporters.splice(reporterIndex, 1)
 
         super({ ...globalConfig, coverageReporters: coverageReporters }, _options)
+
+        this.shouldInstrumentOptions = {
+            collectCoverage: globalConfig.collectCoverage,
+            collectCoverageFrom: globalConfig.collectCoverageFrom,
+            collectCoverageOnlyFrom: globalConfig.collectCoverageOnlyFrom,
+            // coverageProvider: globalConfig.coverageProvider,
+            changedFiles: undefined,
+        }
 
         this.collectCoverage = globalConfig.collectCoverage
         // Using environment variable to communicate between reporter and setup
@@ -36,18 +46,23 @@ export = class PuppeteerIstanbul extends CoverageReporter {
         }
     }
 
-    onTestResult(_test: Test, testResult: TestResult, _aggregatedResults: AggregatedResult) {
+    onTestResult(test: Test, testResult: TestResult, _aggregatedResults: AggregatedResult) {
         if (this.collectCoverage) {
             const coverage = createCoverageMap({})
+            const mergeFileCoverage = ([filename, fileCoverage]: [string, FileCoverage]) => {
+                if (shouldInstrument(filename, this.shouldInstrumentOptions, test.context.config)) {
+                    coverage.merge({ [filename]: fileCoverage })
+                }
+            }
 
-            coverage.merge(this.coverageStorage.read())
+            Object.entries(this.coverageStorage.read()).map(mergeFileCoverage)
             if (testResult.coverage) {
-                coverage.merge(testResult.coverage)
+                Object.entries(testResult.coverage).map(mergeFileCoverage)
             }
             if (Object.keys(coverage).length) {
                 testResult.coverage = coverage.data
             }
-            return super.onTestResult(_test, testResult, _aggregatedResults)
+            return super.onTestResult(test, testResult, _aggregatedResults)
         }
     }
 
