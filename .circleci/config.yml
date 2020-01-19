@@ -11,9 +11,6 @@ workflows:
       - test-node10:
           requires:
             - build
-      - test-node8:
-          requires:
-            - build
 
 executors:
   node12:
@@ -49,13 +46,25 @@ jobs:
       - checkout
       - attach_workspace:
           at: /tmp/lib
-      - run: .circleci/run-example.sh examples/parcel-example-with-jest-puppeteer
-      - run: .circleci/run-example.sh examples/parcel-example-without-jest-puppeteer
+      # - run: |
+      #     cd examples/parcel-example-with-jest-puppeteer
+      #     yarn install
+      #     rm -rf ./node_modules/jest-puppeteer-istanbul/lib/*
+      #     cp -f /tmp/lib/* ./node_modules/jest-puppeteer-istanbul/lib/
+      - run: |
+          ls /tmp/lib
+      - run: |
+          yarn install
+      - run: |
+          set -x
+          cd examples/parcel-example-with-jest-puppeteer
+          yarn install
+          # rm -rf ./node_modules/jest-puppeteer-istanbul/lib/*
+          # cp -f /tmp/lib/* ./node_modules/jest-puppeteer-istanbul/lib/
+          ls -lrth ./node_modules/jest-puppeteer-istanbul/lib/
+      - run: |
+          yarn run jest test/example.test.js
 
   test-node10:
     steps: *test-steps
     executor: node10
-
-  test-node8:
-    steps: *test-steps
-    executor: node8

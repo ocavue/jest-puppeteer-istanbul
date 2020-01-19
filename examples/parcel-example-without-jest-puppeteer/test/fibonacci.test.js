@@ -6,13 +6,13 @@ async function setupPuppeteer() {
     global.page = page
 }
 
-describe("fibonacci number", () => {
-    beforeAll(async () => {
-        await setupPuppeteer()
-        await page.goto("http://localhost:1234")
-        await page.waitFor(200)
-    })
+beforeAll(async () => {
+    await setupPuppeteer()
+    await page.goto("http://localhost:1234")
+    await page.waitFor(200)
+})
 
+describe("fibonacci number", () => {
     const typeAndCalculate = async function(inputNumber) {
         await page.click("#input")
 

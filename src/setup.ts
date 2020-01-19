@@ -10,9 +10,12 @@ async function getCoverage(page: Page): Promise<CoverageMap> {
 }
 
 afterEach(async () => {
-    if (process.env.JEST_PUPPETEER_ISTANBUL_COVERAGE !== "true") return
+    console.log("afterEach before")
+    if (process.env.JEST_PUPPETEER_ISTANBUL_COVERAGE === "false") return
     if (typeof page === "undefined") return
+    console.log("afterEach after")
     const coverageMap = await getCoverage(page)
+    console.log("afterEach coverageMap", coverageMap)
     coverageMap.merge(coverageStorage.read())
     coverageStorage.write(coverageMap)
 })
