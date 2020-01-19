@@ -27,7 +27,7 @@ export class CoverageStorage {
         if (!existsSync(this.coverageDirPath)) {
             mkdirSync(this.coverageDirPath, { recursive: true })
         }
-        writeFileSync(this.coverageJsonPath, JSON.stringify(coverage.data))
+        writeFileSync(this.coverageJsonPath, JSON.stringify(coverage.data), "utf-8")
     }
 
     delete(): void {
