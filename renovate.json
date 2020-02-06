@@ -11,7 +11,8 @@
     },
     {
       "depTypeList": [
-        "devDependencies"
+        "devDependencies",
+        "peerDependencies"
       ],
       "rangeStrategy": "replace"
     }
