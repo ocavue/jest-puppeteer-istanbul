@@ -2,5 +2,18 @@
   "extends": [
     "config:base"
   ],
-  "rangeStrategy": "widen"
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "*"
+      ],
+      "rangeStrategy": "widen"
+    },
+    {
+      "depTypeList": [
+        "devDependencies"
+      ],
+      "rangeStrategy": "replace"
+    }
+  ]
 }
