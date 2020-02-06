@@ -24,21 +24,21 @@
         "lib"
     ],
     "devDependencies": {
-        "@changesets/cli": "^2.5.1",
-        "@types/expect-puppeteer": "^3.3.1",
-        "@types/jest-environment-puppeteer": "^4.3.1",
-        "@types/puppeteer": "^2.0.0",
-        "@typescript-eslint/eslint-plugin": "^2.2.0",
-        "@typescript-eslint/parser": "^2.2.0",
-        "eslint": "^6.3.0",
-        "eslint-config-prettier": "^6.3.0",
-        "eslint-plugin-prettier": "^3.1.0",
-        "prettier": "^1.18.2",
-        "prettier-eslint": "^9.0.0",
-        "typescript": "~3.7.0"
+        "@changesets/cli": "2.5.1",
+        "@types/expect-puppeteer": "3.3.3",
+        "@types/jest-environment-puppeteer": "4.3.1",
+        "@types/puppeteer": "2.0.0",
+        "@typescript-eslint/eslint-plugin": "2.16.0",
+        "@typescript-eslint/parser": "2.16.0",
+        "eslint": "6.8.0",
+        "eslint-config-prettier": "6.9.0",
+        "eslint-plugin-prettier": "3.1.2",
+        "prettier": "1.19.1",
+        "prettier-eslint": "9.0.1",
+        "typescript": "3.7.4"
     },
     "dependencies": {
-        "jest": "^24.0.0"
+        "jest": "24.9.0"
     },
     "peerDependencies": {
         "puppeteer": ">=1.10.0"
