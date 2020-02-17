@@ -17,13 +17,44 @@ npm install -D jest-puppeteer-istanbul
 
 ### [1/4]
 
-Make sure that you have [jest](https://github.com/facebook/jest) and [babel](https://github.com/babel/babel) installed and configured.
+Make sure that you have [Jest](https://github.com/facebook/jest) and [Babel](https://github.com/babel/babel) installed and configured.
 
 ### [2/4]
 
-Install `babel-plugin-istanbul` and add it to your babel config.
+Install [`babel-plugin-istanbul`](https://www.npmjs.com/package/babel-plugin-istanbul) and add it to your Babel config.
 
 You should **ONLY** use this plugin when you are in development mode. This plugin will add a lot of code for keeping track of the coverage statements. You definitely won't want them in your final production code.
+
+Babel configuration examples:
+
+```
+// .babelrc.js
+
+const plugins = [ /* Your babel plugins */ ]
+if (process.env.NODE_ENV === "development") {
+  plugins.push("istanbul")
+}
+module.exports = {
+  plugins: plugins
+}
+```
+
+```
+// babel.config.json
+
+{
+  "plugins": [
+    // Your babel plugins
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+         "istanbul"
+      ]
+    }
+  }
+}
+```
 
 ### [3/4]
 
