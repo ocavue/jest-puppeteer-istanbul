@@ -27,7 +27,7 @@ You should **ONLY** use this plugin when you are in development mode. This plugi
 
 Babel configuration examples:
 
-```
+```javascript
 // .babelrc.js
 
 const plugins = [ /* Your babel plugins */ ]
@@ -39,7 +39,7 @@ module.exports = {
 }
 ```
 
-```
+```json
 // babel.config.json
 
 {
