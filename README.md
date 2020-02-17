@@ -39,7 +39,7 @@ module.exports = {
 }
 ```
 
-```json
+```json5
 // babel.config.json
 
 {
