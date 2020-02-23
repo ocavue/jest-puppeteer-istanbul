@@ -32,13 +32,13 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: &cache_key main-dependencies-{{ checksum "yarn.lock" }}-v0
-      - run: yarn install --frozen-lockfile
+          key: &cache_key main-dependencies-{{ checksum "package-lock.json" }}-v0
+      - run: npm ci
       - save_cache:
           paths:
             - node_modules
           key: *cache_key
-      - run: yarn build --outDir /tmp/lib
+      - run: npm run build -- --outDir /tmp/lib
       - persist_to_workspace:
           root: /tmp/lib
           paths: ["."]
