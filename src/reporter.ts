@@ -28,7 +28,7 @@ export = class PuppeteerIstanbul extends CoverageReporter {
             collectCoverage: globalConfig.collectCoverage,
             collectCoverageFrom: globalConfig.collectCoverageFrom,
             collectCoverageOnlyFrom: globalConfig.collectCoverageOnlyFrom,
-            // coverageProvider: globalConfig.coverageProvider,
+            coverageProvider: globalConfig.coverageProvider,
             changedFiles: undefined,
         }
 
@@ -46,7 +46,7 @@ export = class PuppeteerIstanbul extends CoverageReporter {
         }
     }
 
-    onTestResult(test: Test, testResult: TestResult, _aggregatedResults: AggregatedResult) {
+    onTestResult(test: Test, testResult: TestResult) {
         if (this.collectCoverage) {
             const coverage = createCoverageMap({})
             const mergeFileCoverage = ([filename, fileCoverage]: [string, FileCoverage]) => {
@@ -62,7 +62,7 @@ export = class PuppeteerIstanbul extends CoverageReporter {
             if (Object.keys(coverage).length) {
                 testResult.coverage = coverage.data
             }
-            return super.onTestResult(test, testResult, _aggregatedResults)
+            return super.onTestResult(test, testResult)
         }
     }
 
