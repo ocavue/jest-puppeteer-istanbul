@@ -1,5 +1,11 @@
 # jest-puppeteer-istanbul
 
+## 0.5.1
+
+### Patch Changes
+
+-   3dca522: Support jest@25
+
 ## 0.5.0
 
 ### Minor Changes
