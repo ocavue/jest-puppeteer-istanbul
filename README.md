@@ -80,17 +80,16 @@ A Jest configuration example:
 
 ### [4/4]
 
-`jest-puppeteer-istanbul` need to access puppeteer page from global variables to get coverage information. If you use [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer), jest-puppeteer will do it for you and you can skip this step. Otherwise you need to do it yourself, like below:
+`jest-puppeteer-istanbul` need to access puppeteer page from global variable `page` to get coverage information. If you use [jest-puppeteer](https://github.com/smooth-code/jest-puppeteer), jest-puppeteer will do it for you and you can skip this step. Otherwise you need to do it yourself, like below:
 
 ```js
+beforeAll(async () => {
+    const browser = await puppeteer.launch()
+    const page = await browser.newPage()
+    global.page = page
+})
 describe("E2E Tests", () => {
-    beforeAll(async () => {
-      const browser = await puppeteer.launch()
-      const page = await browser.newPage()
-      global.page = page
-    })
-
-    test(async () => { /*your test code*/ })
+    test(async () => { /* Your test code */ })
 })
 ```
 
