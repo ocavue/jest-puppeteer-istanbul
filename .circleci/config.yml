@@ -55,7 +55,3 @@ jobs:
   test-node10:
     steps: *test-steps
     executor: node10
-
-  test-node8:
-    steps: *test-steps
-    executor: node8
