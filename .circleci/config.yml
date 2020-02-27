@@ -11,9 +11,6 @@ workflows:
       - test-node10:
           requires:
             - build
-      - test-node8:
-          requires:
-            - build
 
 executors:
   node12:
@@ -22,9 +19,6 @@ executors:
   node10:
     docker:
       - image: circleci/node:10-stretch-browsers
-  node8:
-    docker:
-      - image: circleci/node:8-stretch-browsers
 
 jobs:
   build:
