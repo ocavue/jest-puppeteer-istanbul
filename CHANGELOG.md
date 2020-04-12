@@ -1,5 +1,11 @@
 # jest-puppeteer-istanbul
 
+## 0.5.2
+
+### Patch Changes
+
+-   69a45ec: chore: test publish with CI
+
 ## 0.5.1
 
 ### Patch Changes
