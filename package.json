@@ -18,7 +18,7 @@
     "scripts": {
         "build": "tsc",
         "lint": "eslint --ignore-path .gitignore --ext '.js,.jsx,.ts,.tsx'",
-        "release": "npm run build && npx changeset publish"
+        "release": "npm run build && npm publish --access public"
     },
     "files": [
         "lib"
