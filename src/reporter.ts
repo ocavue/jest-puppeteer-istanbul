@@ -1,7 +1,7 @@
 import { createCoverageMap, FileCoverage } from "istanbul-lib-coverage"
 import { shouldInstrument, ShouldInstrumentOptions } from "@jest/transform"
 import { CoverageReporter } from "@jest/reporters"
-import { TestResult, AggregatedResult } from "@jest/test-result"
+import { TestResult } from "@jest/test-result"
 import { Test } from "jest-runner"
 import { Config } from "@jest/types"
 import { CoverageStorage } from "./storage"
