@@ -2,10 +2,10 @@
 
 name: GitHub Actions
 
-on:
-  push:
-    branches:
-      - master
+# on:
+#   push:
+#     branches:
+#       - master
 
 jobs:
   build_and_test:
