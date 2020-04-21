@@ -1,5 +1,5 @@
 {
-  "name": "example",
+  "name": "parcel-example-with-jest-puppeteer",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -15,6 +15,6 @@
     "jest-puppeteer": "^4.3.0",
     "jest-puppeteer-istanbul": "*",
     "parcel": "^1.12.3",
-    "puppeteer": "^1.19.0"
+    "puppeteer": "^2.0.0"
   }
 }
