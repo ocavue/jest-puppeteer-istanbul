@@ -1,6 +1,6 @@
 # Check https://github.com/changesets/action for more details
 
-name: Release
+name: GitHub Actions
 
 on:
   push:
