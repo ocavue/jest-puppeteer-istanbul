@@ -8,5 +8,8 @@
     "scripts": {
         "build:all": "./script/build_all.sh",
         "lint": "eslint --ignore-path .gitignore --ext '.js,.jsx,.ts,.tsx'"
+    },
+    "devDependencies": {
+        "@changesets/cli": "^2.5.1"
     }
 }
