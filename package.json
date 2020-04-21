@@ -10,6 +10,7 @@
         "lint": "eslint --ignore-path .gitignore --ext '.js,.jsx,.ts,.tsx'"
     },
     "devDependencies": {
-        "@changesets/cli": "^2.5.1"
+        "@changesets/cli": "^2.5.1",
+        "eslint-plugin-jest": "^23.8.2"
     }
 }

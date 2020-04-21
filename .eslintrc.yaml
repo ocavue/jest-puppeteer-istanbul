@@ -1,32 +1,66 @@
 root: true
-parser: "@typescript-eslint/parser"
-parserOptions:
-  parser: "@typescript-eslint/parser"
-  ecmaVersion: 2018 # Allows for the parsing of modern ECMAScript features
-  project:
-    - "./packages/core/tsconfig.json"
-  ecmaFeatures:
-    jsx: true
-extends:
-  # https://github.com/typescript-eslint/typescript-eslint/tree/v2.25.0/packages/eslint-plugin#recommended-configs
-  - "eslint:recommended" # the set of rules which are recommended for all projects by the ESLint Team
-  - "plugin:@typescript-eslint/eslint-recommended" # adjust the rules from `eslint:recommended` appropriately for TypeScript
-  - "plugin:@typescript-eslint/recommended" # recommended rules for typescript
-  - "plugin:@typescript-eslint/recommended-requiring-type-checking" # provide lint rules with access to type information
 
-  # runs Prettier as an ESLint rule
-  - "plugin:prettier/recommended"
-
-  # turns off all ELLint rules that are unnecessary or might conflict with Prettier
-  - "prettier"
-  - "prettier/@typescript-eslint" # for @typescript-eslint/eslint-plugin
-  - "prettier/react" # for eslint-plugin-react
-env:
-  browser: true
-  node: true
 rules:
   "no-useless-escape": "off"
   "@typescript-eslint/explicit-function-return-type": "off"
   "@typescript-eslint/no-unused-vars": [error, { args: "none" }]
   "@typescript-eslint/no-explicit-any": "off"
   "@typescript-eslint/no-empty-function": "off"
+overrides:
+  - files: ["packages/**/*"]
+    parser: "@typescript-eslint/parser"
+    parserOptions:
+      parser: "@typescript-eslint/parser"
+      ecmaVersion: 2018 # Allows for the parsing of modern ECMAScript features
+      project:
+        - "./packages/core/tsconfig.json"
+      ecmaFeatures:
+        jsx: true
+    extends:
+      # https://github.com/typescript-eslint/typescript-eslint/tree/v2.25.0/packages/eslint-plugin#recommended-configs
+      - "eslint:recommended" # the set of rules which are recommended for all projects by the ESLint Team
+      - "plugin:@typescript-eslint/eslint-recommended" # adjust the rules from `eslint:recommended` appropriately for TypeScript
+      - "plugin:@typescript-eslint/recommended" # recommended rules for typescript
+      - "plugin:@typescript-eslint/recommended-requiring-type-checking" # provide lint rules with access to type information
+
+      # runs Prettier as an ESLint rule
+      - "plugin:prettier/recommended"
+
+      # turns off all ELLint rules that are unnecessary or might conflict with Prettier
+      - "prettier"
+      - "prettier/@typescript-eslint" # for @typescript-eslint/eslint-plugin
+    env:
+      browser: true
+      node: true
+    rules:
+      "@typescript-eslint/explicit-function-return-type": "off"
+      "@typescript-eslint/no-explicit-any": "off"
+  - files: ["examples/**/*"]
+    # parserOptions:
+    #   ecmaVersion: 2018 # Allows for the parsing of modern ECMAScript features
+    parserOptions:
+      "ecmaVersion": 2017
+    env:
+      es6: true
+      browser: true
+      node: true
+      jest: true
+    extends:
+      # https://github.com/typescript-eslint/typescript-eslint/tree/v2.25.0/packages/eslint-plugin#recommended-configs
+      - "eslint:recommended" # the set of rules which are recommended for all projects by the ESLint Team
+      # runs Prettier as an ESLint rule
+      - "plugin:prettier/recommended"
+
+      # turns off all ELLint rules that are unnecessary or might conflict with Prettier
+      - "prettier"
+
+      - "plugin:jest/style"
+      - "plugin:jest/recommended"
+    globals:
+      page: "readonly"
+      browser: "readonly"
+      context: "readonly"
+      jestPuppeteer: "readonly"
+
+ignorePatterns:
+  - jest*.js
