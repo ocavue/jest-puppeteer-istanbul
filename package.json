@@ -3,7 +3,7 @@
     "workspaces": [
         "examples/parcel-example-with-jest-puppeteer",
         "examples/parcel-example-without-jest-puppeteer",
-        "packages/jest-puppeteer-istanbul"
+        "packages/core"
     ],
     "scripts": {
         "build:all": "./script/build_all.sh",
