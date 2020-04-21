@@ -3,22 +3,30 @@ parser: "@typescript-eslint/parser"
 parserOptions:
   parser: "@typescript-eslint/parser"
   ecmaVersion: 2018 # Allows for the parsing of modern ECMAScript features
-plugins:
-  - "@typescript-eslint"
-  - "prettier"
+  project:
+    - "./packages/core/tsconfig.json"
+  ecmaFeatures:
+    jsx: true
 extends:
-  - plugin:@typescript-eslint/recommended
-  - plugin:prettier/recommended
-  # Uses "eslint-config-prettier" to disable ESLint rules from "@typescript-eslint/eslint-plugin" that would conflict with prettier
-  - prettier/@typescript-eslint
+  # https://github.com/typescript-eslint/typescript-eslint/tree/v2.25.0/packages/eslint-plugin#recommended-configs
+  - "eslint:recommended" # the set of rules which are recommended for all projects by the ESLint Team
+  - "plugin:@typescript-eslint/eslint-recommended" # adjust the rules from `eslint:recommended` appropriately for TypeScript
+  - "plugin:@typescript-eslint/recommended" # recommended rules for typescript
+  - "plugin:@typescript-eslint/recommended-requiring-type-checking" # provide lint rules with access to type information
+
+  # runs Prettier as an ESLint rule
+  - "plugin:prettier/recommended"
+
+  # turns off all ELLint rules that are unnecessary or might conflict with Prettier
+  - "prettier"
+  - "prettier/@typescript-eslint" # for @typescript-eslint/eslint-plugin
+  - "prettier/react" # for eslint-plugin-react
 env:
+  browser: true
   node: true
-  jest: true
 rules:
+  "no-useless-escape": "off"
   "@typescript-eslint/explicit-function-return-type": "off"
-  "@typescript-eslint/no-explicit-any": "off"
   "@typescript-eslint/no-unused-vars": [error, { args: "none" }]
-overrides:
-  - files: ["*.js"]
-    rules:
-      "@typescript-eslint/no-var-requires": "off"
+  "@typescript-eslint/no-explicit-any": "off"
+  "@typescript-eslint/no-empty-function": "off"
