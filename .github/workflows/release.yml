@@ -23,18 +23,20 @@ jobs:
         with:
           node-version: 12.x
 
-      - uses: actions/cache@v1
+      - name: Cache
+        uses: actions/cache@v1
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-v1
-          restore-keys: |
-            ${{ runner.os }}-node-
+          # https://err.sh/next.js/no-cache
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-v0
 
       - name: Install Dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Create Release Pull Request or Publish to npm
         if: github.ref == 'refs/heads/master'
