@@ -1,7 +1,7 @@
 {
     "name": "jest-puppeteer-istanbul",
     "description": "Collect code coverage information from end-to-end jest puppeteer tests.",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "repository": "https://github.com/ocavue/jest-puppeteer-istanbul",
     "author": "ocavue <ocavue@gmail.com>",
     "license": "MIT",
