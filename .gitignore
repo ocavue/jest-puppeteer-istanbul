@@ -2,6 +2,8 @@
 dist/
 lib/
 coverage_result/
+examples/*/package-lock.json
+examples/*/yarn.lock
 
 # Logs
 logs
