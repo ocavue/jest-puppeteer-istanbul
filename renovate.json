@@ -3,6 +3,9 @@
     "config:base",
     ":semanticCommitTypeAll(chore)"
   ],
+  "postUpdateOptions": [
+    "npmDedupe"
+  ],
   "lockFileMaintenance": {
     "enabled": true,
     "extends": "schedule:monthly"
