@@ -4,21 +4,9 @@
     ":semanticCommitTypeAll(chore)"
   ],
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": true,
+    "extends": "schedule:monthly"
   },
-  "packageRules": [
-    {
-      "packagePatterns": [
-        "*"
-      ],
-      "rangeStrategy": "widen"
-    },
-    {
-      "depTypeList": [
-        "devDependencies",
-        "peerDependencies"
-      ],
-      "rangeStrategy": "replace"
-    }
-  ]
+  "prConcurrentLimit": 3,
+  "rangeStrategy": "replace"
 }
