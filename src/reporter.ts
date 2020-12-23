@@ -1,4 +1,4 @@
-import { createCoverageMap, FileCoverage } from "istanbul-lib-coverage"
+import { createCoverageMap, FileCoverage, FileCoverageData } from "istanbul-lib-coverage"
 import { shouldInstrument, ShouldInstrumentOptions } from "@jest/transform"
 import { CoverageReporter } from "@jest/reporters"
 import { TestResult } from "@jest/test-result"
@@ -49,7 +49,10 @@ export = class PuppeteerIstanbul extends CoverageReporter {
     onTestResult(test: Test, testResult: TestResult) {
         if (this.collectCoverage) {
             const coverage = createCoverageMap({})
-            const mergeFileCoverage = ([filename, fileCoverage]: [string, FileCoverage]) => {
+            const mergeFileCoverage = ([filename, fileCoverage]: [
+                string,
+                FileCoverage | FileCoverageData,
+            ]) => {
                 if (shouldInstrument(filename, this.shouldInstrumentOptions, test.context.config)) {
                     coverage.merge({ [filename]: fileCoverage })
                 }
