@@ -93,6 +93,10 @@ describe("E2E Tests", () => {
 })
 ```
 
+## How it works
+
+TODO
+
 ## Examples
 
 Check [this link](https://github.com/ocavue/jest-puppeteer-istanbul/tree/master/examples) for complete examples.
