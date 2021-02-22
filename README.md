@@ -96,3 +96,9 @@ describe("E2E Tests", () => {
 ## Examples
 
 Check [this link](https://github.com/ocavue/jest-puppeteer-istanbul/tree/master/examples) for complete examples.
+
+## Troubleshooting
+
+If you can't get the code coverage correctly when using the Jest from [IntelliJ IDEA](https://www.jetbrains.com/help/idea/running-unit-tests-on-jest.html) or [WebStorm](https://www.jetbrains.com/help/webstorm/running-unit-tests-on-jest.html#ws_jest_running_tests), that's because the IDE ignores `jest-puppeteer-istanbul/lib/reporter` in the `jest.config.js` in favour of its own Jest reporter. You can add `--reporters jest-puppeteer-istanbul/lib/reporter` in your IDE's Jest configuration like below to fix this.
+
+![IDEA config](https://user-images.githubusercontent.com/24715727/102864414-0b811680-446f-11eb-8c5a-46e0e5f114cb.png)
