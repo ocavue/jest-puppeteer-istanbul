@@ -8,7 +8,10 @@ workflows:
       - test-node12:
           requires:
             - build
-      - test-node10:
+      - test-node14:
+          requires:
+            - build
+      - test-node16:
           requires:
             - build
 
