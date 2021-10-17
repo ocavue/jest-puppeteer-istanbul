@@ -2,6 +2,8 @@
 dist/
 lib/
 coverage_result/
+.parcel-cache
+pnpm-lock.yaml
 
 # Logs
 logs
