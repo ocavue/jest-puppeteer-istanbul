@@ -1,7 +1,7 @@
 describe("fibonacci number", () => {
     beforeAll(async () => {
         await page.goto("http://localhost:1234")
-        await page.waitFor(200)
+        await page.waitForTimeout(200)
     })
 
     const typeAndCalculate = async function(inputNumber) {
@@ -12,7 +12,7 @@ describe("fibonacci number", () => {
 
         await page.keyboard.type(inputNumber)
         await page.click("#calculate")
-        await page.waitFor(500) // Wait for the calculation
+        await page.waitForTimeout(500) // Wait for the calculation
         const result = await page.$eval("#result", element => element.innerHTML)
         return result
     }
