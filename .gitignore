@@ -4,6 +4,8 @@ lib/
 coverage_result/
 .parcel-cache
 pnpm-lock.yaml
+yalc.lock
+.yalc/
 
 # Logs
 logs

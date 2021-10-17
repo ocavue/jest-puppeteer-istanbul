@@ -6,7 +6,7 @@ import { Test } from "jest-runner"
 import { Config } from "@jest/types"
 import { CoverageStorage } from "./storage"
 
-export = class PuppeteerIstanbul extends CoverageReporter {
+class PuppeteerIstanbul extends CoverageReporter {
     private collectCoverage: boolean
     private coverageStorage: CoverageStorage
     private shouldInstrumentOptions: ShouldInstrumentOptions
@@ -77,3 +77,5 @@ export = class PuppeteerIstanbul extends CoverageReporter {
         }
     }
 }
+
+export default PuppeteerIstanbul
