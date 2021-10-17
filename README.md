@@ -1,5 +1,7 @@
 # jest-puppeteer-istanbul
 
+> Using Playwright? Check https://github.com/ccpu/jest-playwright-istanbul, which is a fork of this project.
+
 <p>
   <a href="http://badge.fury.io/js/jest-puppeteer-istanbul"><img src="https://badge.fury.io/js/jest-puppeteer-istanbul.svg" alt="npm version"></a>
   <a href="https://circleci.com/gh/ocavue/jest-puppeteer-istanbul/tree/master"><img src="https://circleci.com/gh/ocavue/jest-puppeteer-istanbul/tree/master.svg?&style=shield" alt="Build Status"></a>
