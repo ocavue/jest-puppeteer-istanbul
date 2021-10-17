@@ -16,13 +16,16 @@ executors:
   node12:
     docker:
       - image: circleci/node:12-stretch-browsers
-  node10:
+  node14:
     docker:
-      - image: circleci/node:10-stretch-browsers
+      - image: circleci/node:14-bullseye-browsers
+  node16:
+    docker:
+      - image: circleci/node:16-bullseye-browsers
 
 jobs:
   build:
-    executor: node12
+    executor: node14
     steps:
       - checkout
       - restore_cache:
@@ -46,6 +49,10 @@ jobs:
       - run: .circleci/run-example.sh examples/parcel-example-with-jest-puppeteer
       - run: .circleci/run-example.sh examples/parcel-example-without-jest-puppeteer
 
-  test-node10:
+  test-node14:
     steps: *test-steps
-    executor: node10
+    executor: node14
+
+  test-node16:
+    steps: *test-steps
+    executor: node16
